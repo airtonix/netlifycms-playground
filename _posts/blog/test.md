@@ -1,0 +1,6 @@
+---
+title: test
+date: 2018-08-07T11:30:22.301Z
+thumbnail: /static/screenshot-1-.png
+---
+a test
