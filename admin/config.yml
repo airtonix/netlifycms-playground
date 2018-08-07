@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: airtonix/zenobi.us
+  branch: master
+
+publish_mode: editorial_workflow
+
+media_folder: /media
+public_folder: /static
+
+collections:
+  - name: page
+    folder: /types/pages/
+    fields:
+      - label: "Title"
+        name: 'title'
+        widget: 'string'
+      - label: "Content"
+        name: 'content'
+        widget: 'markdown'
