@@ -1,0 +1,7 @@
+title: a thing
+content: |-
+  ```js
+  function () {
+    return false;
+  }
+  ```
