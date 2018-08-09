@@ -1,10 +1,5 @@
 title: test
 date: 2018-08-09T11:02:36.903Z
 thumbnail: /static/screenshot-1-.png
-summary: |-
-  * ## test
-
-  ```js
-  something.code()
-  ```
-body: test
+summary: "test"
+body: "a-thing"
