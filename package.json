@@ -1,0 +1,10 @@
+{
+    "name": "netlify-playground",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "npx serve"
+    },
+    "dependencies": {
+        "serve": "^9.4.0"
+    }
+}

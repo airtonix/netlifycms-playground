@@ -1,20 +1,77 @@
 backend:
   name: github
-  repo: airtonix/zenobi.us
+  repo: airtonix/netlifycms-playground
   branch: master
-
-publish_mode: editorial_workflow
 
 media_folder: /media
 public_folder: /static
 
 collections:
-  - name: page
-    folder: /types/pages/
-    fields:
-      - label: "Title"
-        name: 'title'
-        widget: 'string'
-      - label: "Content"
-        name: 'content'
-        widget: 'markdown'
+- label: "Page"
+  name: "page"
+  folder: "_pages/page"
+  create: true
+  extension: yaml
+  format: yml
+  fields:
+    - {label: "Title", name: "title", widget: "string"}
+    - {label: "Publish Date", name: "date", widget: "datetime"}
+    - {label: "Featured Image", name: "thumbnail", widget: "image"}
+    - {label: "Summary", name: "summary", widget: "markdown"}
+    - {label: "Body", name: "body", widget: relation, collection: content-areas}
+
+- label: Content Area
+  name: content-areas
+  folder: _blocks/layout
+  create: true
+  extension: yaml
+  format: yml
+  fields:
+    - {label: "title", name: "title", widget: "string"}
+    - {label: "Layout", name: "layout", widget: "select", options: ["One column", "Two column"]}
+    - {label: "Blocks", name: "blocks", widget: "relation", collection: 'block-wysiwyg'}
+    #    collections: [
+    #      'block-wysiwyg',
+    #      'block-map',
+    #      'block-testimonial',
+    #      'block-image',
+    #      'block-hero'
+    #    ]}
+- label: "Wysiwyg Block"
+  name: 'block-wysiwyg'
+  folder: "_blocks/wysiwyg"
+  create: true
+  extension: yaml
+  format: yml
+  fields:
+    - {label: "title", name: "title", widget: "string"}
+    - {label: "content", name: "content", widget: "markdown"}
+# - label: "Map Block"
+#   name: 'block-map'
+#   folder: "_blocks/map"
+#   fields:
+#     - {label: "title", name: "title", widget: "string"}
+#     - {label: "address", name: "address", widget: "string"}
+#     - {label: "lat", name: "lat", widget: "string"}
+#     - {label: "lng", name: "lng", widget: "string"}
+# - label: "Testimonial Block"
+#   name: 'block-testimonial'
+#   folder: "_blocks/testimonial"
+#   fields:
+#     - {label: "title", name: "title", widget: "string"}
+#     - {label: "address", name: "address", widget: "string"}
+#     - {label: "lat", name: "lat", widget: "string"}
+#     - {label: "lng", name: "lng", widget: "string"}
+# - label: "Image Block"
+#   name: 'block-image'
+#   folder: "_blocks/image"
+#   fields:
+#     - {label: "title", name: "title", widget: "string"}
+#     - {label: "image", name: "image", widget: "image"}
+# - label: "Hero Block"
+#   name: 'block-hero'
+#   folder: "_blocks/hero"
+#   fields:
+#     - {label: "title", name: "title", widget: "string"}
+#     - {label: "subtitle", name: "subtitle", widget: "string"}
+#     - {label: "background", name: "background", widget: "image"}
